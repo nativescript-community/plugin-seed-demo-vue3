@@ -1,31 +1,35 @@
 <template>
   <Frame>
     <Page>
-        <ActionBar>
-            <Label text="Vue.js Demo" />
-        </ActionBar>
+      <ActionBar>
+        <Label text="Vue.js Demo"/>
+      </ActionBar>
 
-        <ScrollView>
-            <StackLayout>
-                <StackLayout v-for="demo in demos" :key="demo.name">
-                    <Button :text="demo.name" @tap="goToDemo(demo.component)" />
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
+      <ScrollView>
+        <StackLayout>
+          <StackLayout v-for="demo in demos" :key="demo.name">
+            <Button :text="demo.name" @tap="goToDemo(demo.component)"/>
+          </StackLayout>
+        </StackLayout>
+      </ScrollView>
     </Page>
   </Frame>
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref, $navigateTo} from "nativescript-vue";
-import { demos } from '../../../demo-snippets/vue3/install';
+import {onMounted, ref, $navigateTo} from "nativescript-vue3";
+import {demos} from '../../../demo-snippets/vue3/install';
+
 declare const demoRedirect: string;
 
-const demos = ref([])
+type DemoComponent = {
+  name: string, path: string, component: string
+}
+const demos = ref<DemoComponent[]>(demos);
 
-onMounted(() =>{
+onMounted(() => {
   if (demoRedirect) {
-    const Demo = demos.find(({ path }) => path === demoRedirect);
+    const Demo = demos.find(({path}) => path === demoRedirect);
     if (Demo) {
       $navigateTo(Demo.component, {
         animated: false
@@ -33,7 +37,7 @@ onMounted(() =>{
     }
   }
 })
-const goToDemo = async (component: any) =>{
+const goToDemo = async (component: any) => {
   try {
     await $navigateTo(component, {
       animated: true,
