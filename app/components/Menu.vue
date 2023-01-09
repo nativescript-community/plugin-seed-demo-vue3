@@ -2,7 +2,7 @@
   <Frame>
     <Page>
       <ActionBar>
-        <Label text="Vue.js Demo"/>
+        <Label text="Vue 3 Demo"/>
       </ActionBar>
 
       <ScrollView>
@@ -16,16 +16,11 @@
   </Frame>
 </template>
 
-<script lang="ts" setup>
-import {onMounted, ref, $navigateTo} from "nativescript-vue3";
+<script setup lang="ts">
+import {onMounted, ref, $navigateTo} from "nativescript-vue";
 import {demos} from '../../../demo-snippets/vue3/install';
 
 declare const demoRedirect: string;
-
-type DemoComponent = {
-  name: string, path: string, component: string
-}
-const demos = ref<DemoComponent[]>(demos);
 
 onMounted(() => {
   if (demoRedirect) {

@@ -1,4 +1,4 @@
-import { createApp } from 'nativescript-vue3';
+import { createApp } from 'nativescript-vue';
 import Menu from './components/Menu.vue';
 
 import { installPlugin } from '@nativescript-community/template-snippet/vue3/install';
