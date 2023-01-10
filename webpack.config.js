@@ -36,6 +36,7 @@ module.exports = (env) => {
     }
 
     webpack.chainWebpack((config) => {
+        config.resolve.alias.set('nativescript-vue3', 'nativescript-vue');
         config.resolve.modules.add(resolve(__dirname, '../demo-snippets/node_modules'));
         config.plugin('DefinePlugin').tap((args) => {
             if (redirect) {
