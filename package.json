@@ -41,7 +41,7 @@
         "@nativescript-community/template-snippet": "*",
         "@nativescript/core": "8.9.9",
         "@nativescript/theme": "3.1.0",
-        "nativescript-vue": "3.0.1"
+        "nativescript-vue": "3.1.2"
     },
     "devDependencies": {
         "@akylas/nativescript": "8.9.10",
